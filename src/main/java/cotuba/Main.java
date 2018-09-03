@@ -198,7 +198,7 @@ public class Main {
 
 								});
 							} catch (Exception ex) {
-								throw new RuntimeException("Error parsing file " + arquivoMD, ex);
+								throw new RuntimeException("Erro ao fazer parse do arquivo " + arquivoMD, ex);
 							}
 
 							try {
