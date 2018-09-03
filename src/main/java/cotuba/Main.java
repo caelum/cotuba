@@ -128,6 +128,7 @@ public class Main {
 								try {
 									document = parser.parseReader(Files.newBufferedReader(arquivoMD));
 									document.accept(new AbstractVisitor() {
+										@Override
 										public void visit(Heading heading) {
 											if (heading.getLevel() == 1) {
 												// capítulo
@@ -184,6 +185,7 @@ public class Main {
 							try {
 								document = parser.parseReader(Files.newBufferedReader(arquivoMD));
 								document.accept(new AbstractVisitor() {
+									@Override
 									public void visit(Heading heading) {
 										if (heading.getLevel() == 1) {
 											// capítulo
