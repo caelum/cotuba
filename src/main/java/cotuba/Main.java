@@ -166,7 +166,6 @@ public class Main {
 								"Erro tentando encontrar arquivos .md em " + diretorioDosMD.toAbsolutePath(), ex);
 					}
 
-					pdfDocument.close();
 				} catch (Exception ex) {
 					throw new RuntimeException("Erro ao criar arquivo PDF: " + arquivoDeSaida.toAbsolutePath(), ex);
 				}
