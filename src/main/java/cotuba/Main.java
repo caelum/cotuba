@@ -58,17 +58,15 @@ public class Main {
 				"Habilita modo verboso.");
 		options.addOption(opcaoModoVerboso);
 		
-		Options opcoesCLI = options;
-
 		CommandLineParser cmdParser = new DefaultParser();
 		HelpFormatter ajuda = new HelpFormatter();
 		CommandLine cmd;
 
 		try {
-			cmd = cmdParser.parse(opcoesCLI, args);
+			cmd = cmdParser.parse(options, args);
 		} catch (ParseException e) {
 			System.err.println(e.getMessage());
-			ajuda.printHelp("cotuba", opcoesCLI);
+			ajuda.printHelp("cotuba", options);
 			System.exit(1);
 			return;
 		}
