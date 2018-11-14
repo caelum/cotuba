@@ -41,10 +41,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Path diretorioDosMD;
-		String formato;
-		Path arquivoDeSaida;
-		boolean modoVerboso = false;
+		LeitorOpcoesCLI opcoesCLI = new LeitorOpcoesCLI(args);
+		Path diretorioDosMD = opcoesCLI.getDiretorioDosMD();
+		String formato = opcoesCLI.getFormato();
+		Path arquivoDeSaida = opcoesCLI.getArquivoDeSaida();
+		boolean modoVerboso = opcoesCLI.isModoVerboso();
 
 		try {
 
