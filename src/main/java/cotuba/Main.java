@@ -16,6 +16,11 @@ public class Main {
 		RenderizadorMDParaHTML renderizador = new RenderizadorMDParaHTML();
 		List<Capitulo> capitulos = renderizador.renderiza(diretorioDosMD);
 
+		Ebook ebook = new Ebook();
+		ebook.setFormato(formato);
+		ebook.setArquivoDeSaida(arquivoDeSaida);
+		ebook.setCapitulos(capitulos);
+
 		try {
 
 			if ("pdf".equals(formato)) {
