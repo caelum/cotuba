@@ -9,7 +9,6 @@ import cotuba.epub.GeradorEPUB;
 import cotuba.epub.GeradorEPUBImpl;
 import cotuba.md.RenderizadorMDParaHTML;
 import cotuba.pdf.GeradorPDF;
-import cotuba.pdf.GeradorPDFImpl;
 
 public class Cotuba {
 
@@ -25,7 +24,7 @@ public class Cotuba {
 
 		if ("pdf".equals(formato)) {
 
-			GeradorPDF geradorPDF = new GeradorPDFImpl();
+			GeradorPDF geradorPDF = GeradorPDF.cria();
 			geradorPDF.gera(ebook);
 
 		} else if ("epub".equals(formato)) {
