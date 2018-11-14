@@ -6,7 +6,6 @@ import java.util.List;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 import cotuba.epub.GeradorEPUB;
-import cotuba.epub.GeradorEPUBImpl;
 import cotuba.md.RenderizadorMDParaHTML;
 import cotuba.pdf.GeradorPDF;
 
@@ -29,7 +28,7 @@ public class Cotuba {
 
 		} else if ("epub".equals(formato)) {
 
-			GeradorEPUB geradorEPUB = new GeradorEPUBImpl();
+			GeradorEPUB geradorEPUB = GeradorEPUB.cria();
 			geradorEPUB.gera(ebook);
 
 		} else {
