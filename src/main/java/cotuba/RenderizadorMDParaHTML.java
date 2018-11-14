@@ -25,6 +25,9 @@ public class RenderizadorMDParaHTML {
 		PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.md");
 		try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
 			arquivosMD.filter(matcher::matches).sorted().forEach(arquivoMD -> {
+
+				Capitulo capitulo = new Capitulo();
+
 				Parser parser = Parser.builder().build();
 				Node document = null;
 				try {
