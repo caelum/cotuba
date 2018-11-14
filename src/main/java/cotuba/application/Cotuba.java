@@ -5,8 +5,6 @@ import java.util.List;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
-import cotuba.epub.GeradorEPUB;
-import cotuba.pdf.GeradorPDF;
 
 public class Cotuba {
 
@@ -24,6 +22,7 @@ public class Cotuba {
 		ebook.setArquivoDeSaida(arquivoDeSaida);
 		ebook.setCapitulos(capitulos);
 
+		GeradorEbook gerador = GeradorEbook.cria(formato);
 		gerador.gera(ebook);
 
 	}
