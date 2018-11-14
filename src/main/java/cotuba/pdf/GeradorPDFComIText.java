@@ -16,7 +16,7 @@ import com.itextpdf.layout.property.AreaBreakType;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
-public class GeradorPDFImpl implements GeradorPDF {
+public class GeradorPDFComIText implements GeradorPDF {
 
 	@Override
 	public void gera(Ebook ebook) {
