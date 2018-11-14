@@ -3,12 +3,13 @@ package cotuba.application;
 import java.nio.file.Path;
 import java.util.List;
 
+import cotuba.cli.LeitorOpcoesCLI;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
 public class Cotuba {
 
-	public void executa(String formato, Path diretorioDosMD, Path arquivoDeSaida) {
+	public void executa(LeitorOpcoesCLI parametros) {
 
 		RenderizadorMDParaHTML renderizador = RenderizadorMDParaHTML.cria();
 		List<Capitulo> capitulos = renderizador.renderiza(diretorioDosMD);
