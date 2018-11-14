@@ -16,6 +16,7 @@ import org.commonmark.node.Text;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
+import cotuba.application.RenderizadorMDParaHTML;
 import cotuba.domain.Capitulo;
 
 public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHTML {
