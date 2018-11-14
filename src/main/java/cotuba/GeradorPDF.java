@@ -17,16 +17,24 @@ public class GeradorPDF {
 
 	public void gera(Ebook ebook) {
 
-		try (PdfWriter writer = new PdfWriter(Files.newOutputStream(arquivoDeSaida));
-			PdfDocument pdf = new PdfDocument(writer);
-			Document pdfDocument = new Document(pdf)) {
+		Path arquivoDeSaida = ebook.getArquivoDeSaida();
 
-			List<IElement> convertToElements = HtmlConverter.convertToElements(html);
-			for (IElement element : convertToElements) {
-				pdfDocument.add((IBlockElement) element);
+		try (PdfWriter writer = new PdfWriter(Files.newOutputStream(arquivoDeSaida));
+				PdfDocument pdf = new PdfDocument(writer);
+				Document pdfDocument = new Document(pdf)) {
+
+			for (Capitulo capitulo : ebook.getCapitulos()) {
+
+				String html = capitulo.getConteudoHTML();
+
+				List<IElement> convertToElements = HtmlConverter.convertToElements(html);
+				for (IElement element : convertToElements) {
+					pdfDocument.add((IBlockElement) element);
+				}
+				// TODO: não adicionar página depois do último capítulo
+				pdfDocument.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+
 			}
-			// TODO: não adicionar página depois do último capítulo
-			pdfDocument.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
 
 		} catch (Exception ex) {
 			throw new RuntimeException("Erro ao criar arquivo PDF: " + arquivoDeSaida.toAbsolutePath(), ex);
