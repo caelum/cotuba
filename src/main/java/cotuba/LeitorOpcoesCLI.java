@@ -14,6 +14,11 @@ import org.apache.commons.cli.ParseException;
 
 public class LeitorOpcoesCLI {
 
+	private Path diretorioDosMD;
+	private String formato;
+	private Path arquivoDeSaida;
+	private boolean modoVerboso = false;
+
 	public LeitorOpcoesCLI(String[] args) {
 
 		Options options = new Options();
@@ -78,6 +83,22 @@ public class LeitorOpcoesCLI {
 
 		modoVerboso = cmd.hasOption("verbose");
 
+	}
+
+	public Path getDiretorioDosMD() {
+		return diretorioDosMD;
+	}
+
+	public String getFormato() {
+		return formato;
+	}
+
+	public Path getArquivoDeSaida() {
+		return arquivoDeSaida;
+	}
+
+	public boolean isModoVerboso() {
+		return modoVerboso;
 	}
 
 }
