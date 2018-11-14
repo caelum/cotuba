@@ -25,47 +25,8 @@ public class GeradorEPUB {
 
 		Book epub = new Book();
 
-		PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.md");
-		try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
-			arquivosMD.filter(matcher::matches).sorted().forEach(arquivoMD -> {
-				Parser parser = Parser.builder().build();
-				Node document = null;
-				try {
-					document = parser.parseReader(Files.newBufferedReader(arquivoMD));
-					document.accept(new AbstractVisitor() {
-						@Override
-						public void visit(Heading heading) {
-							if (heading.getLevel() == 1) {
-								// capítulo
-								String tituloDoCapitulo = ((Text) heading.getFirstChild()).getLiteral();
-								// TODO: usar título do capítulo
-							} else if (heading.getLevel() == 2) {
-								// seção
-							} else if (heading.getLevel() == 3) {
-								// título
-							}
-						}
-
-					});
-				} catch (Exception ex) {
-					throw new RuntimeException("Erro ao fazer parse do arquivo " + arquivoMD, ex);
-				}
-
-				try {
-					HtmlRenderer renderer = HtmlRenderer.builder().build();
-					String html = renderer.render(document);
-
-					// TODO: usar título do capítulo
-					epub.addSection("Capítulo", new Resource(html.getBytes(), MediatypeService.XHTML));
-
-				} catch (Exception ex) {
-					throw new RuntimeException("Erro ao renderizar para HTML o arquivo " + arquivoMD, ex);
-				}
-			});
-		} catch (IOException ex) {
-			throw new RuntimeException("Erro tentando encontrar arquivos .md em " + diretorioDosMD.toAbsolutePath(),
-					ex);
-		}
+		// TODO: usar título do capítulo
+		epub.addSection("Capítulo", new Resource(html.getBytes(), MediatypeService.XHTML));
 
 		EpubWriter epubWriter = new EpubWriter();
 
