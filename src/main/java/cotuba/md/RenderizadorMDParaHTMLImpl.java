@@ -18,8 +18,9 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import cotuba.domain.Capitulo;
 
-public class RenderizadorMDParaHTMLImpl {
+public class RenderizadorMDParaHTMLImpl implements RenderizadorMDParaHTML {
 
+	@Override
 	public List<Capitulo> renderiza(Path diretorioDosMD) {
 
 		List<Capitulo> capitulos = new ArrayList<>();
