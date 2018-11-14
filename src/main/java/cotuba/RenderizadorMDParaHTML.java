@@ -38,7 +38,9 @@ public class RenderizadorMDParaHTML {
 							if (heading.getLevel() == 1) {
 								// capítulo
 								String tituloDoCapitulo = ((Text) heading.getFirstChild()).getLiteral();
-								// TODO: usar título do capítulo
+
+								capitulo.setTitulo(tituloDoCapitulo);
+
 							} else if (heading.getLevel() == 2) {
 								// seção
 							} else if (heading.getLevel() == 3) {
