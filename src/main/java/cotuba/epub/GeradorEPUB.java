@@ -6,4 +6,8 @@ public interface GeradorEPUB {
 
 	void gera(Ebook ebook);
 
+	public static GeradorEPUB cria() {
+		return new GeradorEPUBImpl();
+	}
+
 }
