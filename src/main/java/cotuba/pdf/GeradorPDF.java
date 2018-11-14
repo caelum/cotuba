@@ -17,7 +17,7 @@ import cotuba.application.GeradorEbook;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
-public class GeradorPDFComIText implements GeradorEbook {
+public class GeradorPDF implements GeradorEbook {
 
 	@Override
 	public void gera(Ebook ebook) {

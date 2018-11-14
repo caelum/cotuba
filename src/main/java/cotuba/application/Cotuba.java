@@ -5,8 +5,8 @@ import java.util.List;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
-import cotuba.epub.GeradorEPUBComEpublib;
-import cotuba.pdf.GeradorPDFComIText;
+import cotuba.epub.GeradorEPUB;
+import cotuba.pdf.GeradorPDF;
 
 public class Cotuba {
 
@@ -28,11 +28,11 @@ public class Cotuba {
 
 		if ("pdf".equals(formato)) {
 
-			gerador = new GeradorPDFComIText();
+			gerador = new GeradorPDF();
 
 		} else if ("epub".equals(formato)) {
 
-			gerador = new GeradorEPUBComEpublib();
+			gerador = new GeradorEPUB();
 
 		} else {
 			throw new RuntimeException("Formato	do	ebook	inválido:	" + formato);
