@@ -18,7 +18,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import cotuba.domain.Capitulo;
 
-public class RenderizadorMDParaHTML {
+public class RenderizadorMDParaHTMLImpl {
 
 	public List<Capitulo> renderiza(Path diretorioDosMD) {
 

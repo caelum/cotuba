@@ -5,15 +5,15 @@ import java.util.List;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
-import cotuba.epub.GeradorEPUB;
-import cotuba.md.RenderizadorMDParaHTML;
-import cotuba.pdf.GeradorPDF;
+import cotuba.epub.GeradorEPUBImpl;
+import cotuba.md.RenderizadorMDParaHTMLImpl;
+import cotuba.pdf.GeradorPDFImpl;
 
 public class Cotuba {
 
 	public void executa(String formato, Path diretorioDosMD, Path arquivoDeSaida) {
 
-		RenderizadorMDParaHTML renderizador = new RenderizadorMDParaHTML();
+		RenderizadorMDParaHTMLImpl renderizador = new RenderizadorMDParaHTMLImpl();
 		List<Capitulo> capitulos = renderizador.renderiza(diretorioDosMD);
 
 		Ebook ebook = new Ebook();
@@ -23,12 +23,12 @@ public class Cotuba {
 
 		if ("pdf".equals(formato)) {
 
-			GeradorPDF geradorPDF = new GeradorPDF();
+			GeradorPDFImpl geradorPDF = new GeradorPDFImpl();
 			geradorPDF.gera(ebook);
 
 		} else if ("epub".equals(formato)) {
 
-			GeradorEPUB geradorEPUB = new GeradorEPUB();
+			GeradorEPUBImpl geradorEPUB = new GeradorEPUBImpl();
 			geradorEPUB.gera(ebook);
 
 		} else {
