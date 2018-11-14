@@ -1,19 +1,8 @@
 package cotuba;
 
-import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.PathMatcher;
 import java.util.List;
-import java.util.stream.Stream;
-
-import org.commonmark.node.AbstractVisitor;
-import org.commonmark.node.Heading;
-import org.commonmark.node.Node;
-import org.commonmark.node.Text;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
 
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -29,7 +18,6 @@ public class GeradorPDF {
 	public void gera(Path diretorioDosMD, Path arquivoDeSaida) {
 
 		try (PdfWriter writer = new PdfWriter(Files.newOutputStream(arquivoDeSaida));
-
 			PdfDocument pdf = new PdfDocument(writer);
 			Document pdfDocument = new Document(pdf)) {
 

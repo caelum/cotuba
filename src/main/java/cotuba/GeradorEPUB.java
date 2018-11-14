@@ -1,18 +1,8 @@
 package cotuba;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.PathMatcher;
-import java.util.stream.Stream;
-
-import org.commonmark.node.AbstractVisitor;
-import org.commonmark.node.Heading;
-import org.commonmark.node.Node;
-import org.commonmark.node.Text;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
 
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Resource;
