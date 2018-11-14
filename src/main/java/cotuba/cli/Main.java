@@ -1,6 +1,8 @@
-package cotuba;
+package cotuba.cli;
 
 import java.nio.file.Path;
+
+import cotuba.application.Cotuba;
 
 public class Main {
 

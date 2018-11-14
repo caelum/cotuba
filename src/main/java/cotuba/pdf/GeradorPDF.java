@@ -1,4 +1,4 @@
-package cotuba;
+package cotuba.pdf;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +12,9 @@ import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.property.AreaBreakType;
+
+import cotuba.domain.Capitulo;
+import cotuba.domain.Ebook;
 
 public class GeradorPDF {
 
