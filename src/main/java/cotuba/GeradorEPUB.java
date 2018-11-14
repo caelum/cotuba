@@ -11,7 +11,7 @@ import nl.siegmann.epublib.service.MediatypeService;
 
 public class GeradorEPUB {
 
-	public void gera(Path diretorioDosMD, Path arquivoDeSaida) {
+	public void gera(Ebook ebook) {
 
 		Book epub = new Book();
 

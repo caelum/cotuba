@@ -15,7 +15,7 @@ import com.itextpdf.layout.property.AreaBreakType;
 
 public class GeradorPDF {
 
-	public void gera(Path diretorioDosMD, Path arquivoDeSaida) {
+	public void gera(Ebook ebook) {
 
 		try (PdfWriter writer = new PdfWriter(Files.newOutputStream(arquivoDeSaida));
 			PdfDocument pdf = new PdfDocument(writer);
