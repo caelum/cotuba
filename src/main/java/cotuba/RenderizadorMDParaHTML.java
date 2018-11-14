@@ -5,6 +5,8 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.commonmark.node.AbstractVisitor;
@@ -16,7 +18,9 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 public class RenderizadorMDParaHTML {
 
-	public void renderiza(Path diretorioDosMD) {
+	public List<Capitulo> renderiza(Path diretorioDosMD) {
+
+		List<Capitulo> capitulos = new ArrayList<>();
 
 		PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.md");
 		try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
@@ -57,6 +61,7 @@ public class RenderizadorMDParaHTML {
 					ex);
 		}
 
+		return capitulos;
 	}
 
 }
