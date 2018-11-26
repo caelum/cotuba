@@ -24,4 +24,11 @@ public interface Plugin {
 
 	void aposGeracao(Ebook ebook);
 
+	static void gerou(Ebook ebook) {
+		ServiceLoader<Plugin> loader = ServiceLoader.load(Plugin.class);
+		for (Plugin plugin : loader) {
+			plugin.aposGeracao(ebook);
+		}
+	}
+
 }
