@@ -6,8 +6,7 @@ public class TemaParadizo implements Plugin {
 
 	@Override
 	public String cssDoTema() {
-		// TODO Auto-generated method stub
-		return null;
+		return FileUtils.getResourceContents("/tema.css");
 	}
 
 }
