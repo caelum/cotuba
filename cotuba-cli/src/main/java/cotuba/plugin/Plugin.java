@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
+import cotuba.domain.Ebook;
+
 public interface Plugin {
 
 	String cssDoTema();
@@ -19,5 +21,7 @@ public interface Plugin {
 
 		return temas;
 	}
+
+	void aposGeracao(Ebook ebook);
 
 }
