@@ -1,11 +1,14 @@
 package br.com.cognitio.estatisticas;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class ContagemPalavras {
 
+	private Map<String, Integer> map = new TreeMap<>();
+
 	public void adicionaPalavra(String palavra) {
-		Integer contagem = get(palavra);
+		Integer contagem = map.get(palavra);
 
 		if (contagem != null) {
 			contagem++;
@@ -13,6 +16,6 @@ public class ContagemPalavras {
 			contagem = 1;
 		}
 
-		put(palavra, contagem);
+		map.put(palavra, contagem);
 	}
 }
