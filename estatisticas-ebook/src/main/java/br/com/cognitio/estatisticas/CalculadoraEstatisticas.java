@@ -1,5 +1,7 @@
 package br.com.cognitio.estatisticas;
 
+import java.text.Normalizer;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -19,9 +21,15 @@ public class CalculadoraEstatisticas implements Plugin {
 			String html = capitulo.getConteudoHTML();
 			Document doc = Jsoup.parse(html);
 			String textoDoCapitulo = doc.body().text();
-			String[] palavras = textoDoCapitulo.split("\\s+");
+
+			String textoDoCapituloSemPontuacao = textoDoCapitulo.replaceAll("\\p{Punct}", " ");
+			String textoDoCapituloSemAcentos = Normalizer.normalize(textoDoCapituloSemPontuacao, Normalizer.Form.NFD)
+					.replaceAll("[^\\p{ASCII}]", "");
+
+			String[] palavras = textoDoCapituloSemAcentos.split("\\s+");
 			for (String palavra : palavras) {
-				System.out.println(palavra);
+				String emMaiusculas = palavra.toUpperCase();
+				System.out.println(emMaiusculas);
 			}
 		}
 
