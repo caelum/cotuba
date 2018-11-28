@@ -1,6 +1,7 @@
 package br.com.cognitio.estatisticas;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class ContagemPalavras {
@@ -17,5 +18,9 @@ public class ContagemPalavras {
 		}
 
 		map.put(palavra, contagem);
+	}
+
+	public Set<Map.Entry<String, Integer>> entrySet() {
+		return map.entrySet();
 	}
 }
