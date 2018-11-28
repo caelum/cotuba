@@ -1,8 +1,8 @@
 package br.com.cognitio.estatisticas;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 
-public class ContagemPalavras extends HashMap<String, Integer> {
+public class ContagemPalavras extends TreeMap<String, Integer> {
 
 	private static final long serialVersionUID = 1L;
 
