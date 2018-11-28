@@ -37,6 +37,11 @@ public class CalculadoraEstatisticas implements Plugin {
 			}
 		}
 
+		for (Map.Entry<String, Integer> contagem : contagemPalavras.entrySet()) {
+			String palavra = contagem.getKey();
+			Integer ocorrencias = contagem.getValue();
+			System.out.println(palavra + ": " + ocorrencias);
+		}
 	}
 
 }
