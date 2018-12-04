@@ -5,14 +5,12 @@ import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import cotuba.domain.Capitulo;
 import cotuba.plugin.Tema;
 
 public class AplicadorTema {
 
-	public String aplica(Capitulo capitulo) {
+	public String aplica(String html) {
 
-		String html = capitulo.getConteudoHTML();
 		Document document = Jsoup.parse(html);
 
 		List<String> listaDeTemas = Tema.listaDeTemas();
