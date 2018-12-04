@@ -2,6 +2,7 @@ package cotuba.application;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.function.Consumer;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
@@ -10,7 +11,7 @@ import cotuba.plugin.AoFinalizarGeracao;
 
 public class Cotuba {
 
-	public void executa(ParametrosCotuba parametros) {
+	public void executa(ParametrosCotuba parametros, Consumer<String> acaoPosGeracao) {
 
 		FormatoEbook formato = parametros.getFormato();
 		Path diretorioDosMD = parametros.getDiretorioDosMD();
@@ -24,7 +25,7 @@ public class Cotuba {
 		GeradorEbook gerador = GeradorEbook.cria(formato);
 		gerador.gera(ebook);
 
-		AoFinalizarGeracao.gerou(ebook);
+		AoFinalizarGeracao.gerou(ebook, acaoPosGeracao);
 
 	}
 
