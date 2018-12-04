@@ -5,9 +5,9 @@ import java.util.List;
 
 public final class Ebook {
 
-	private FormatoEbook formato;
-	private Path arquivoDeSaida;
-	private List<Capitulo> capitulos;
+	private final FormatoEbook formato;
+	private final  Path arquivoDeSaida;
+	private final List<Capitulo> capitulos;
 
 	public FormatoEbook getFormato() {
 		return formato;
