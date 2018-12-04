@@ -3,7 +3,7 @@ package cotuba.domain;
 import java.nio.file.Path;
 import java.util.List;
 
-public class Ebook implements cotuba.plugin.Ebook {
+public class Ebook {
 
 	private FormatoEbook formato;
 	private Path arquivoDeSaida;
