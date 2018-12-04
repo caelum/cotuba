@@ -1,6 +1,7 @@
 package br.com.cognitio.estatisticas;
 
 import java.text.Normalizer;
+import java.util.function.Consumer;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -11,7 +12,7 @@ import cotuba.plugin.AoFinalizarGeracao;
 
 public class CalculadoraEstatisticas implements AoFinalizarGeracao {
 
-	public void aposGeracao(Ebook ebook) {
+	public void aposGeracao(Ebook ebook, Consumer<String> acaoPosGeracao) {
 
 		ContagemPalavras contagemPalavras = new ContagemPalavras();
 
@@ -34,7 +35,7 @@ public class CalculadoraEstatisticas implements AoFinalizarGeracao {
 		for (ContagemPalavras.Contagem contagem : contagemPalavras) {
 			String palavra = contagem.getPalavra();
 			Integer ocorrencias = contagem.getQuantidade();
-			System.out.println(palavra + ": " + ocorrencias);
+			acaoPosGeracao.accept(palavra + ": " + ocorrencias);
 		}
 	}
 
