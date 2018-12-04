@@ -13,24 +13,12 @@ public class Ebook {
 		return formato;
 	}
 
-	public void setFormato(FormatoEbook formato) {
-		this.formato = formato;
-	}
-
 	public Path getArquivoDeSaida() {
 		return arquivoDeSaida;
 	}
 
-	public void setArquivoDeSaida(Path arquivoDeSaida) {
-		this.arquivoDeSaida = arquivoDeSaida;
-	}
-
 	public List<Capitulo> getCapitulos() {
 		return capitulos;
-	}
-
-	public void setCapitulos(List<Capitulo> capitulos) {
-		this.capitulos = capitulos;
 	}
 
 }
