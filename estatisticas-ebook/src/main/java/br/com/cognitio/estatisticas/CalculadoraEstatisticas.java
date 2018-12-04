@@ -6,9 +6,9 @@ import java.util.Map;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import cotuba.domain.Capitulo;
+import cotuba.domain.Ebook;
 import cotuba.plugin.AoFinalizarGeracao;
-import cotuba.plugin.Capitulo;
-import cotuba.plugin.Ebook;
 
 public class CalculadoraEstatisticas implements AoFinalizarGeracao {
 
