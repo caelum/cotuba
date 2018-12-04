@@ -6,7 +6,7 @@ import java.util.List;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 import cotuba.domain.FormatoEbook;
-import cotuba.plugin.Plugin;
+import cotuba.plugin.AoFinalizarGeracao;
 
 public class Cotuba {
 
@@ -27,7 +27,7 @@ public class Cotuba {
 		GeradorEbook gerador = GeradorEbook.cria(formato);
 		gerador.gera(ebook);
 
-		Plugin.gerou(ebook);
+		AoFinalizarGeracao.gerou(ebook);
 
 	}
 
