@@ -63,10 +63,11 @@ public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHT
 					HtmlRenderer renderer = HtmlRenderer.builder().build();
 					String html = renderer.render(document);
 
-					capitulo.setConteudoHTML(html);
-
 					AplicadorTema tema = new AplicadorTema();
-					tema.aplica(capitulo);
+					String htmlComTemas = tema.aplica(html);
+
+					capituloBuilder.comConteudoHTML(htmlComTemas);
+					Capitulo capitulo = capituloBuilder.constroi();
 
 					capitulos.add(capitulo);
 
