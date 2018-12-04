@@ -16,7 +16,7 @@ public class Main {
 		try {
 
 			Cotuba cotuba = new Cotuba();
-			cotuba.executa(opcoesCLI);
+			cotuba.executa(opcoesCLI, System.out::println);
 
 			System.out.println("Arquivo gerado com sucesso: " + arquivoDeSaida);
 
