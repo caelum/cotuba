@@ -18,6 +18,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import cotuba.application.RenderizadorMDParaHTML;
 import cotuba.domain.Capitulo;
+import cotuba.domain.builder.CapituloBuilder;
 import cotuba.tema.AplicadorTema;
 
 public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHTML {
@@ -31,7 +32,7 @@ public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHT
 		try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
 			arquivosMD.filter(matcher::matches).sorted().forEach(arquivoMD -> {
 
-				Capitulo capitulo = new Capitulo();
+				CapituloBuilder	capituloBuilder	=	new	CapituloBuilder();
 
 				Parser parser = Parser.builder().build();
 				Node document = null;
