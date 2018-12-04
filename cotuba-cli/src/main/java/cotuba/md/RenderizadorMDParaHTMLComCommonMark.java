@@ -32,7 +32,7 @@ public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHT
 		try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
 			arquivosMD.filter(matcher::matches).sorted().forEach(arquivoMD -> {
 
-				CapituloBuilder	capituloBuilder	=	new	CapituloBuilder();
+				CapituloBuilder capituloBuilder = new CapituloBuilder();
 
 				Parser parser = Parser.builder().build();
 				Node document = null;
@@ -45,7 +45,7 @@ public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHT
 								// capítulo
 								String tituloDoCapitulo = ((Text) heading.getFirstChild()).getLiteral();
 
-								capitulo.setTitulo(tituloDoCapitulo);
+								capituloBuilder.comTitulo(tituloDoCapitulo);
 
 							} else if (heading.getLevel() == 2) {
 								// seção
