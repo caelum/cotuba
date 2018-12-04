@@ -1,10 +1,13 @@
 package br.com.cognitio.estatisticas;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class ContagemPalavras {
+import br.com.cognitio.estatisticas.ContagemPalavras.Contagem;
+
+public class ContagemPalavras implements Iterable<Contagem> {
 
 	public static final class Contagem {
 
@@ -41,5 +44,10 @@ public class ContagemPalavras {
 
 	public Set<Map.Entry<String, Integer>> entrySet() {
 		return map.entrySet();
+	}
+
+	@Override
+	public Iterator<Contagem> iterator() {
+		return null;
 	}
 }
