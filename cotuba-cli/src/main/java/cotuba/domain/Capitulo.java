@@ -1,6 +1,6 @@
 package cotuba.domain;
 
-public class Capitulo {
+public final class Capitulo {
 
 	private String titulo;
 	private String conteudoHTML;
