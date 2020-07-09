@@ -14,23 +14,7 @@ public class LeitorOpcoesCLI {
     boolean modoVerboso = false;
 
     LeitorOpcoesCLI(String[] args) {
-        Options options = new Options();
-
-        Option opcaoDeDiretorioDosMD = new Option("d", "dir", true,
-                "Diretório que contem os arquivos md. Default: diretório atual.");
-        options.addOption(opcaoDeDiretorioDosMD);
-
-        Option opcaoDeFormatoDoEbook = new Option("f", "format", true,
-                "Formato de saída do ebook. Pode ser: pdf ou epub. Default: pdf");
-        options.addOption(opcaoDeFormatoDoEbook);
-
-        Option opcaoDeArquivoDeSaida = new Option("o", "output", true,
-                "Arquivo de saída do ebook. Default: book.{formato}.");
-        options.addOption(opcaoDeArquivoDeSaida);
-
-        Option opcaoModoVerboso = new Option("v", "verbose", false,
-                "Habilita modo verboso.");
-        options.addOption(opcaoModoVerboso);
+        Options options = initializeOptions();
 
         CommandLineParser cmdParser = new DefaultParser();
         HelpFormatter ajuda = new HelpFormatter();
@@ -76,6 +60,23 @@ public class LeitorOpcoesCLI {
         }
 
         modoVerboso = cmd.hasOption("verbose");
+    }
+
+    private Options initializeOptions() {
+        Options options = new Options();
+
+        Option opcaoDeDiretorioDosMD = CommandLineOptions.DIR.getOption();
+        options.addOption(opcaoDeDiretorioDosMD);
+
+        Option opcaoDeFormatoDoEbook = CommandLineOptions.FORMAT.getOption();
+        options.addOption(opcaoDeFormatoDoEbook);
+
+        Option opcaoDeArquivoDeSaida = CommandLineOptions.OUTPUT.getOption();
+        options.addOption(opcaoDeArquivoDeSaida);
+
+        Option opcaoModoVerboso = CommandLineOptions.VERBOSE.getOption();
+        options.addOption(opcaoModoVerboso);
+        return options;
     }
 
     public Path getDiretorioDosMD() {
