@@ -5,4 +5,7 @@ target
 .project
 .settings
 .build/
+.idea/
+cotuba-cli.iml
+
 
