@@ -4,18 +4,23 @@ import org.apache.commons.cli.CommandLine;
 
 import java.nio.file.Path;
 
-public class Leitor {
+import static cotuba.leitor.ArquivoDeSaida.criarCaminho;
+import static cotuba.leitor.CMDConstrutor.construir;
+import static cotuba.leitor.DiretorioDosMd.construirDiretorio;
+import static cotuba.leitor.FormatoArquivo.constuirFormato;
+
+public class LeitorDeComandos {
 
     private Path diretorioDosMD;
     private String formato;
     private Path arquivoDeSaida;
     private boolean modoVerboso;
 
-    public Leitor(String[] args) throws Exception {
-        CommandLine cmd = CMDConstrutor.construir(args);
-        diretorioDosMD = DiretorioDosMd.construirDiretorio(cmd.getOptionValue("dir"));
-        formato = FormatoArquivo.constuirFormato(cmd.getOptionValue("format"));
-        arquivoDeSaida = ArquivoDeSaida.criarCaminho(formato, cmd.getOptionValue("output"));
+    public LeitorDeComandos(String[] args) throws Exception {
+        CommandLine cmd = construir(args);
+        diretorioDosMD = construirDiretorio(cmd.getOptionValue("dir"));
+        formato = constuirFormato(cmd.getOptionValue("format"));
+        arquivoDeSaida = criarCaminho(formato, cmd.getOptionValue("output"));
         modoVerboso = cmd.hasOption("verbose");
     }
 

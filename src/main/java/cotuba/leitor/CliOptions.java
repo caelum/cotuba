@@ -1,4 +1,4 @@
-package cotuba;
+package cotuba.leitor;
 
 import org.apache.commons.cli.*;
 
