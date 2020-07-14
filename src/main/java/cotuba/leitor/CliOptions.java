@@ -41,11 +41,12 @@ public enum  CliOptions {
     public static Options buildOptions() {
         Options options = new Options();
         of(CliOptions.values())
-                .forEach(cliOptions -> new Option(
+                .map(cliOptions -> new Option(
                         cliOptions.getOpt(),
                         cliOptions.getLongOpt(),
                         cliOptions.hasArg(),
-                        cliOptions.getDescription()));
+                        cliOptions.getDescription()))
+                .forEach(options::addOption);
         return options;
     }
 }
