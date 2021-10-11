@@ -18,7 +18,9 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import cotuba.application.RenderizadorMDParaHTML;
 import cotuba.domain.Capitulo;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHTML {
 
 	@Override

@@ -2,7 +2,9 @@ package cotuba.cli;
 
 import java.nio.file.Path;
 
+import cotuba.CotubaConfig;
 import cotuba.application.Cotuba;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 
@@ -15,7 +17,8 @@ public class Main {
 
 		try {
 
-			Cotuba cotuba = new Cotuba();
+			var applicationContext = new AnnotationConfigApplicationContext(CotubaConfig.class);
+			Cotuba cotuba = applicationContext.getBean(Cotuba.class);
 			cotuba.executa(opcoesCLI);
 
 			System.out.println("Arquivo gerado com sucesso: " + arquivoDeSaida);
