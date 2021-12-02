@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import cotuba.application.GeradorEPUB;
+import cotuba.application.GeradorEbook;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 import nl.siegmann.epublib.domain.Book;
@@ -14,7 +14,7 @@ import nl.siegmann.epublib.service.MediatypeService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GeradorEPUBComEpublib implements GeradorEPUB {
+public class GeradorEPUBComEpublib implements GeradorEbook {
 
 	@Override
 	public void gera(Ebook ebook) {
@@ -41,6 +41,11 @@ public class GeradorEPUBComEpublib implements GeradorEPUB {
 			throw new RuntimeException("Erro ao criar arquivo EPUB: " + arquivoDeSaida.toAbsolutePath(), ex);
 		}
 
+	}
+
+	@Override
+	public boolean accept(String formato) {
+		return "epub".equalsIgnoreCase(formato);
 	}
 
 }

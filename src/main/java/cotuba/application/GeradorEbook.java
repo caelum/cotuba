@@ -1,10 +1,10 @@
 package cotuba.application;
 
 import cotuba.domain.Ebook;
-import cotuba.pdf.GeradorPDFComIText;
 
-public interface GeradorPDF {
+public interface GeradorEbook {
 
 	void gera(Ebook ebook);
+	boolean accept(String formato);
 
 }

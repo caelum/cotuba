@@ -10,13 +10,11 @@ import java.util.List;
 @Component
 public class Cotuba {
 
-	private final GeradorPDF geradorPDF;
-	private final GeradorEPUB geradorEPUB;
+	private final List<GeradorEbook> geradoresEbook;
 	private final RenderizadorMDParaHTML renderizador;
 
-	public Cotuba(GeradorPDF geradorPDF, GeradorEPUB geradorEPUB, RenderizadorMDParaHTML renderizador) {
-		this.geradorPDF = geradorPDF;
-		this.geradorEPUB = geradorEPUB;
+	public Cotuba(List<GeradorEbook> geradoresEbook, RenderizadorMDParaHTML renderizador) {
+		this.geradoresEbook = geradoresEbook;
 		this.renderizador = renderizador;
 	}
 
@@ -33,19 +31,13 @@ public class Cotuba {
 		ebook.setArquivoDeSaida(arquivoDeSaida);
 		ebook.setCapitulos(capitulos);
 
-		if ("pdf".equals(formato)) {
+		GeradorEbook geradorEbook = geradoresEbook.stream()
+			.filter(gerador -> gerador.accept(formato))
+			.findAny()
+			.orElseThrow(() -> new RuntimeException("Formato do ebook inválido: " + formato));
 
-			geradorPDF.gera(ebook);
-
-		} else if ("epub".equals(formato)) {
-
-			geradorEPUB.gera(ebook);
-
-		} else {
-
-			throw new RuntimeException("Formato do ebook inválido: " + formato);
-
-		}
+		geradorEbook.gera(ebook);
+	
 
 	}
 
